@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "/Users/nderousseaux/Documents/etudes/ecole/superieur/l3_info/s6/programmation_parallele/tps/tp4/ex3",
+      "environment": [],
+      "program": "/Users/nderousseaux/Documents/etudes/ecole/superieur/l3_info/s6/programmation_parallele/tps/tp4/ex3/build/Debug/outDebug",
+      "internalConsoleOptions": "openOnSessionStart",
+      "MIMode": "gdb",
+      "externalConsole": true
+    }
+  ]
+}

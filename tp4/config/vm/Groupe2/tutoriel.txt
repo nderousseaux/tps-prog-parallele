@@ -1,0 +1,29 @@
+Pour avoir accès aux machines virtuelles sur la plateforme Openstack de la 
+DNUM, vous devez suivre les instructions ci-dessous.
+
+Vous trouverez ci-joint un fichier "config" et un fichier "private.pem".
+Copiez le contenu de "config" dans votre ~/.ssh/config (s'il n'existe pas, 
+crée le). 
+Copiez ou déplacez le fichier "private.pem" dans votre home (le 
+répertoire ~). Assurez vous que ce fichier dispose des permissions 0x600
+(rw- --- ---).
+Vous pouvez désormais accéder aux machines via la commande ssh, les noms de
+vos VM correspondent aux lignes "Host" commençant par "vm" du fichier "config".
+La machine "bastionMATIERE" n'est pas une de vos VM.
+
+La commande sudo ne nécessitent pas de mot de passe (dans le cas contraire
+c'est que vous n'etes pas sur une de vos VM).
+Vos enseignants ont la possibilité de démarrer, éteindre, redémarrer et 
+supprimer (et recréer le cas échéant) une ou plusieurs de vos VM.
+Vos VM ont un adressage réseau privé (en 192.168.x.y), elles ne sont donc
+pas directement accessibles depuis l'Internet. Vous passez donc par un bastion
+qui possède une adresse IP publique et qui sert de relais pour accéder à ce
+réseau privé.
+Vous pouvez faire du ssh entre vos VM, la configuration est déjà en 
+place. Vos VM sont parametrés pour "connaitre" les autres, les commandes
+tels que "ssh nom_de_la_VM" ou "ping nom_de_la__VM" fonctionnent.
+
+Le dossier "partage" du home des VM (/home/ubuntu/partage/ qui est un lien 
+symbolique vers /partage/) est un montage NFS du dossier /partage du bastion.
+Ainsi, tout fichier placé dans ce dossier est accessible par toutes les VMs
+de l'UE (je précise bien toute l'UE, peu importe le groupe).

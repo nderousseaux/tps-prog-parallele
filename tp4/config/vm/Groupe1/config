@@ -1,0 +1,101 @@
+Host bastionCalculParallele
+        Hostname 185.155.93.152
+        User student
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-0
+        Hostname 192.168.40.116
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-1
+        Hostname 192.168.40.117
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-10
+        Hostname 192.168.40.126
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-11
+        Hostname 192.168.40.127
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-12
+        Hostname 192.168.40.128
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-13
+        Hostname 192.168.40.129
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-14
+        Hostname 192.168.40.130
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-15
+        Hostname 192.168.40.131
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-2
+        Hostname 192.168.40.118
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-3
+        Hostname 192.168.40.119
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-4
+        Hostname 192.168.40.120
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-5
+        Hostname 192.168.40.121
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-6
+        Hostname 192.168.40.122
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-7
+        Hostname 192.168.40.123
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-8
+        Hostname 192.168.40.124
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no
+Host vmCalculParallelegrp1-9
+        Hostname 192.168.40.125
+        User ubuntu
+        ProxyJump bastionCalculParallele
+        IdentityFile ~/private.pem
+	StrictHostKeyChecking no

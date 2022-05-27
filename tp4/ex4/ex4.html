@@ -1,0 +1,2262 @@
+<!DOCTYPE html>
+
+<html  dir="ltr" lang="fr" xml:lang="fr">
+<head>
+    <title>L3IS6P-PP: Exercice 4 : tri-fusion</title>
+		<link rel="shortcut icon" href="https://moodle.unistra.fr/theme/image.php/unistra/theme/1643647014/favicon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="moodle, L3IS6P-PP: Exercice 4 : tri-fusion" />
+<link rel="stylesheet" type="text/css" href="https://moodle.unistra.fr/theme/yui_combo.php?rollup/3.17.2/yui-moodlesimple-min.css" /><script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="https://moodle.unistra.fr/theme/styles.php/unistra/1643647014_1643646278/all" />
+<script>
+//<![CDATA[
+var M = {}; M.yui = {};
+M.pageloadstarttime = new Date();
+M.cfg = {"wwwroot":"https:\/\/moodle.unistra.fr","sesskey":"IzWxGzYQuj","sessiontimeout":"28800","themerev":"1643647014","slasharguments":1,"theme":"unistra","iconsystemmodule":"core\/icon_system_fontawesome","jsrev":"1643647014","admin":"admin","svgicons":true,"usertimezone":"Europe\/Berlin","contextid":260745,"langrev":1646190726,"templaterev":"1643647014"};var yui1ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin')}};
+var yui2ConfigFn = function(me) {var parts=me.name.replace(/^moodle-/,'').split('-'),component=parts.shift(),module=parts[0],min='-min';if(/-(skin|core)$/.test(me.name)){parts.pop();me.type='css';min=''}
+if(module){var filename=parts.join('-');me.path=component+'/'+module+'/'+filename+min+'.'+me.type}else{me.path=component+'/'+component+'.'+me.type}};
+YUI_config = {"debug":false,"base":"https:\/\/moodle.unistra.fr\/lib\/yuilib\/3.17.2\/","comboBase":"https:\/\/moodle.unistra.fr\/theme\/yui_combo.php?","combine":true,"filter":null,"insertBefore":"firstthemesheet","groups":{"yui2":{"base":"https:\/\/moodle.unistra.fr\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"https:\/\/moodle.unistra.fr\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui1ConfigFn}}},"moodle":{"name":"moodle","base":"https:\/\/moodle.unistra.fr\/theme\/yui_combo.php?m\/1643647014\/","combine":true,"comboBase":"https:\/\/moodle.unistra.fr\/theme\/yui_combo.php?","ext":false,"root":"m\/1643647014\/","patterns":{"moodle-":{"group":"moodle","configFn":yui2ConfigFn}},"filter":null,"modules":{"moodle-core-actionmenu":{"requires":["base","event","node-event-simulate"]},"moodle-core-blocks":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification"]},"moodle-core-chooserdialogue":{"requires":["base","panel","moodle-core-notification"]},"moodle-core-dragdrop":{"requires":["base","node","io","dom","dd","event-key","event-focus","moodle-core-notification"]},"moodle-core-event":{"requires":["event-custom"]},"moodle-core-formchangechecker":{"requires":["base","event-focus","moodle-core-event"]},"moodle-core-handlebars":{"condition":{"trigger":"handlebars","when":"after"}},"moodle-core-languninstallconfirm":{"requires":["base","node","moodle-core-notification-confirm","moodle-core-notification-alert"]},"moodle-core-lockscroll":{"requires":["plugin","base-build"]},"moodle-core-maintenancemodetimer":{"requires":["base","node"]},"moodle-core-notification":{"requires":["moodle-core-notification-dialogue","moodle-core-notification-alert","moodle-core-notification-confirm","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-core-notification-dialogue":{"requires":["base","node","panel","escape","event-key","dd-plugin","moodle-core-widget-focusafterclose","moodle-core-lockscroll"]},"moodle-core-notification-alert":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-confirm":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-exception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-ajaxexception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-popuphelp":{"requires":["moodle-core-tooltip"]},"moodle-core-tooltip":{"requires":["base","node","io-base","moodle-core-notification-dialogue","json-parse","widget-position","widget-position-align","event-outside","cache-base"]},"moodle-core_availability-form":{"requires":["base","node","event","event-delegate","panel","moodle-core-notification-dialogue","json"]},"moodle-backup-backupselectall":{"requires":["node","event","node-event-simulate","anim"]},"moodle-backup-confirmcancel":{"requires":["node","node-event-simulate","moodle-core-notification-confirm"]},"moodle-course-categoryexpander":{"requires":["node","event-key"]},"moodle-course-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-course-coursebase","moodle-course-util"]},"moodle-course-formatchooser":{"requires":["base","node","node-event-simulate"]},"moodle-course-management":{"requires":["base","node","io-base","moodle-core-notification-exception","json-parse","dd-constrain","dd-proxy","dd-drop","dd-delegate","node-event-delegate"]},"moodle-course-util":{"requires":["node"],"use":["moodle-course-util-base"],"submodules":{"moodle-course-util-base":{},"moodle-course-util-section":{"requires":["node","moodle-course-util-base"]},"moodle-course-util-cm":{"requires":["node","moodle-course-util-base"]}}},"moodle-form-dateselector":{"requires":["base","node","overlay","calendar"]},"moodle-form-passwordunmask":{"requires":[]},"moodle-form-shortforms":{"requires":["node","base","selector-css3","moodle-core-event"]},"moodle-question-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-question-preview":{"requires":["base","dom","event-delegate","event-key","core_question_engine"]},"moodle-question-searchform":{"requires":["base","node"]},"moodle-availability_completion-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_date-form":{"requires":["base","node","event","io","moodle-core_availability-form"]},"moodle-availability_grade-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_group-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_grouping-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_ip-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_profile-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-mod_assign-history":{"requires":["node","transition"]},"moodle-mod_bigbluebuttonbn-broker":{"requires":["base","node","datasource-get","datasource-jsonschema","datasource-polling","moodle-core-notification"]},"moodle-mod_bigbluebuttonbn-imports":{"requires":["base","node"]},"moodle-mod_bigbluebuttonbn-modform":{"requires":["base","node"]},"moodle-mod_bigbluebuttonbn-recordings":{"requires":["base","node","datasource-get","datasource-jsonschema","datasource-polling","moodle-core-notification"]},"moodle-mod_bigbluebuttonbn-rooms":{"requires":["base","node","datasource-get","datasource-jsonschema","datasource-polling","moodle-core-notification"]},"moodle-mod_quiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form"]},"moodle-mod_quiz-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-base","moodle-mod_quiz-util-page","moodle-mod_quiz-util-slot","moodle-course-util"]},"moodle-mod_quiz-modform":{"requires":["base","node","event"]},"moodle-mod_quiz-questionchooser":{"requires":["moodle-core-chooserdialogue","moodle-mod_quiz-util","querystring-parse"]},"moodle-mod_quiz-quizbase":{"requires":["base","node"]},"moodle-mod_quiz-toolboxes":{"requires":["base","node","event","event-key","io","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-slot","moodle-core-notification-ajaxexception"]},"moodle-mod_quiz-util":{"requires":["node","moodle-core-actionmenu"],"use":["moodle-mod_quiz-util-base"],"submodules":{"moodle-mod_quiz-util-base":{},"moodle-mod_quiz-util-slot":{"requires":["node","moodle-mod_quiz-util-base"]},"moodle-mod_quiz-util-page":{"requires":["node","moodle-mod_quiz-util-base"]}}},"moodle-mod_scheduler-delselected":{"requires":["base","node","event"]},"moodle-mod_scheduler-saveseen":{"requires":["base","node","event"]},"moodle-mod_scheduler-studentlist":{"requires":["base","node","event","io"]},"moodle-message_airnotifier-toolboxes":{"requires":["base","node","io"]},"moodle-filter_glossary-autolinker":{"requires":["base","node","io-base","json-parse","event-delegate","overlay","moodle-core-event","moodle-core-notification-alert","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-filter_mathjaxloader-loader":{"requires":["moodle-core-event"]},"moodle-editor_atto-editor":{"requires":["node","transition","io","overlay","escape","event","event-simulate","event-custom","node-event-html5","node-event-simulate","yui-throttle","moodle-core-notification-dialogue","moodle-core-notification-confirm","moodle-editor_atto-rangy","handlebars","timers","querystring-stringify"]},"moodle-editor_atto-plugin":{"requires":["node","base","escape","event","event-outside","handlebars","event-custom","timers","moodle-editor_atto-menu"]},"moodle-editor_atto-menu":{"requires":["moodle-core-notification-dialogue","node","event","event-custom"]},"moodle-editor_atto-rangy":{"requires":[]},"moodle-format_grid-gridkeys":{"requires":["event-nav-keys"]},"moodle-report_eventlist-eventfilter":{"requires":["base","event","node","node-event-delegate","datatable","autocomplete","autocomplete-filters"]},"moodle-report_loglive-fetchlogs":{"requires":["base","event","node","io","node-event-delegate"]},"moodle-gradereport_grader-gradereporttable":{"requires":["base","node","event","handlebars","overlay","event-hover"]},"moodle-gradereport_history-userselector":{"requires":["escape","event-delegate","event-key","handlebars","io-base","json-parse","moodle-core-notification-dialogue"]},"moodle-tool_capability-search":{"requires":["base","node"]},"moodle-tool_editrolesbycap-capabilityformfield":{"requires":["base","dom","event","cookie"]},"moodle-tool_lp-dragdrop-reorder":{"requires":["moodle-core-dragdrop"]},"moodle-tool_monitor-dropdown":{"requires":["base","event","node"]},"moodle-local_campusconnect-participantsettings":{"requires":["base","node","event","event-valuechange","node-event-delegate"]},"moodle-assignfeedback_editpdf-editor":{"requires":["base","event","node","io","graphics","json","event-move","event-resize","transition","querystring-stringify-simple","moodle-core-notification-dialog","moodle-core-notification-alert","moodle-core-notification-warning","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-atto_accessibilitychecker-button":{"requires":["color-base","moodle-editor_atto-plugin"]},"moodle-atto_accessibilityhelper-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_align-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_bold-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_c4l-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_charmap-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_clear-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_collapse-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emojipicker-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emoticon-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_equation-button":{"requires":["moodle-editor_atto-plugin","moodle-core-event","io","event-valuechange","tabview","array-extras"]},"moodle-atto_fullscreen-button":{"requires":["event-resize","moodle-editor_atto-plugin"]},"moodle-atto_h5p-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_hr-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_html-beautify":{},"moodle-atto_html-button":{"requires":["promise","moodle-editor_atto-plugin","moodle-atto_html-beautify","moodle-atto_html-codemirror","event-valuechange"]},"moodle-atto_html-codemirror":{"requires":["moodle-atto_html-codemirror-skin"]},"moodle-atto_image-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_indent-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_italic-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_justify-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_link-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-usedfiles":{"requires":["node","escape"]},"moodle-atto_media-button":{"requires":["moodle-editor_atto-plugin","moodle-form-shortforms"]},"moodle-atto_noautolink-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_orderedlist-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_recordrtc-button":{"requires":["moodle-editor_atto-plugin","moodle-atto_recordrtc-recording"]},"moodle-atto_recordrtc-recording":{"requires":["moodle-atto_recordrtc-button"]},"moodle-atto_rtl-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_strike-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_subscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_superscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_table-button":{"requires":["moodle-editor_atto-plugin","moodle-editor_atto-menu","event","event-valuechange"]},"moodle-atto_title-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_underline-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_undo-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_unorderedlist-button":{"requires":["moodle-editor_atto-plugin"]}}},"gallery":{"name":"gallery","base":"https:\/\/moodle.unistra.fr\/lib\/yuilib\/gallery\/","combine":true,"comboBase":"https:\/\/moodle.unistra.fr\/theme\/yui_combo.php?","ext":false,"root":"gallery\/1643647014\/","patterns":{"gallery-":{"group":"gallery"}}}},"modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"https:\/\/moodle.unistra.fr\/lib\/javascript.php\/1643647014\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","escape","moodle-core_filepicker","moodle-core-notification-dialogue"]},"core_comment":{"name":"core_comment","fullpath":"https:\/\/moodle.unistra.fr\/lib\/javascript.php\/1643647014\/comment\/comment.js","requires":["base","io-base","node","json","yui2-animation","overlay","escape"]},"mathjax":{"name":"mathjax","fullpath":"https:\/\/cdn.jsdelivr.net\/npm\/mathjax@2.7.8\/MathJax.js?delayStartupUntil=configured"}}};
+M.yui.loader = {modules: {}};
+
+//]]>
+</script>
+
+<meta name="moodle-validation" content="6aa701b4ff711f01e06453d73152a3f4">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body  id="page-mod-page-view" class="format-topics  path-mod path-mod-page safari dir-ltr lang-fr yui-skin-sam yui3-skin-sam moodle-unistra-fr pagelayout-incourse course-2266 context-260745 cmid-123026 category-2617 ">
+
+<div id="page-wrapper" class="d-print-block">
+
+    <div>
+    <a class="sr-only sr-only-focusable" href="#maincontent">Passer au contenu principal</a>
+</div><script src="https://moodle.unistra.fr/lib/javascript.php/1643647014/lib/babel-polyfill/polyfill.min.js"></script>
+<script src="https://moodle.unistra.fr/lib/javascript.php/1643647014/lib/polyfills/polyfill.js"></script>
+<script src="https://moodle.unistra.fr/theme/yui_combo.php?rollup/3.17.2/yui-moodlesimple-min.js"></script><script src="https://moodle.unistra.fr/theme/jquery.php/core/jquery-3.5.1.min.js"></script>
+<script src="https://moodle.unistra.fr/lib/javascript.php/1643647014/lib/javascript-static.js"></script>
+<script>
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+
+
+    			<nav class="fixed-top navbar navbar-light bg-white navbar-expand moodle-has-zindex">
+    			<div class="logo_unistra_ic"><a href="https://moodle.unistra.fr"><div><span class="titre_a">Plate-forme <strong>pédagogique</strong></span><span class="titre_b">Université de Strasbourg</span></div></a>
+    			</div>
+    
+            <div data-region="drawer-toggle" class="d-inline-block mr-3">
+                <button aria-expanded="false" aria-controls="nav-drawer" type="button" class="btn nav-link float-sm-left mr-1 btn-secondary" data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav"><i class="icon fa fa-bars fa-fw " aria-hidden="true"  ></i><span class="sr-only">Panneau latéral</span></button>
+            </div>
+    
+    		<ul class="navbar-nav d-none d-md-flex">
+                <!-- custom_menu -->
+                <li class="dropdown nav-item">
+    <a class="dropdown-toggle nav-link" id="drop-down-621f66395cbcf621f66395b62f4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" title="documentations et formations" aria-controls="drop-down-menu-621f66395cbcf621f66395b62f4">
+        Aide Moodle
+    </a>
+    <div class="dropdown-menu" role="menu" id="drop-down-menu-621f66395cbcf621f66395b62f4" aria-labelledby="drop-down-621f66395cbcf621f66395b62f4">
+                <a class="dropdown-item" role="menuitem" href="https://documentation.unistra.fr/Catalogue/Services_pedagogiques/Moodle/" >Informations de rentrée...</a>
+                <a class="dropdown-item" role="menuitem" href="https://documentation.unistra.fr/Catalogue/Services_pedagogiques/Moodle/Guide_etudiant/" >Guide de l'étudiant</a>
+                <a class="dropdown-item" role="menuitem" href="https://documentation.unistra.fr/Catalogue/Services_pedagogiques/Moodle/Guide_enseignant/" >Guide de l'enseignant</a>
+                <a class="dropdown-item" role="menuitem" href="https://idip.unistra.fr/appui-par-le-numerique/formations/" >Formations</a>
+    </div>
+</li><li class="dropdown nav-item">
+    <a class="dropdown-toggle nav-link" id="drop-down-621f66395cc6d621f66395b62f5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" title="Plate-formes Moodle de la communauté Unistra" aria-controls="drop-down-menu-621f66395cc6d621f66395b62f5">
+        Autres Moodle
+    </a>
+    <div class="dropdown-menu" role="menu" id="drop-down-menu-621f66395cc6d621f66395b62f5" aria-labelledby="drop-down-621f66395cc6d621f66395b62f5">
+                <a class="dropdown-item" role="menuitem" href="https://aidealareussite.unistra.fr/login/index.php?authCAS=CAS" >Moodle AIR</a>
+                <a class="dropdown-item" role="menuitem" href="https://moodle3-prod-archives.unistra.fr/login/index.php?authCAS=CAS" >Moodle Archives</a>
+                <a class="dropdown-item" role="menuitem" href="https://moodle-exam.unistra.fr/login/index.php?authCAS=CAS" >Moodle Examens</a>
+                <a class="dropdown-item" role="menuitem" href="https://moodle3-prod-exam-archives.unistra.fr/login/index.php?authCAS=CAS" >Moodle Examens Archives</a>
+    </div>
+</li><li class="dropdown nav-item">
+    <a class="dropdown-toggle nav-link" id="drop-down-621f66395ccce621f66395b62f6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" title="Langue" aria-controls="drop-down-menu-621f66395ccce621f66395b62f6">
+        Français ‎(fr)‎
+    </a>
+    <div class="dropdown-menu" role="menu" id="drop-down-menu-621f66395ccce621f66395b62f6" aria-labelledby="drop-down-621f66395ccce621f66395b62f6">
+                <a class="dropdown-item" role="menuitem" href="https://moodle.unistra.fr/mod/page/view.php?id=123026&amp;lang=de" title="Deutsch ‎(de)‎">Deutsch ‎(de)‎</a>
+                <a class="dropdown-item" role="menuitem" href="https://moodle.unistra.fr/mod/page/view.php?id=123026&amp;lang=en" title="English ‎(en)‎">English ‎(en)‎</a>
+                <a class="dropdown-item" role="menuitem" href="https://moodle.unistra.fr/mod/page/view.php?id=123026&amp;lang=fr" title="Français ‎(fr)‎">Français ‎(fr)‎</a>
+    </div>
+</li>
+                <!-- page_heading_menu -->
+                
+            </ul>
+    	  
+    	    <ul class="nav navbar-nav ml-auto">	
+                <li class="d-none d-lg-block">
+    				
+    			</li>
+                <!-- navbar_plugin_output -->
+                <li class="nav-item">
+    				<div class="popover-region collapsed popover-region-notifications"
+    id="nav-notification-popover-container" data-userid="66487"
+    data-region="popover-region">
+    <div class="popover-region-toggle nav-link"
+        data-region="popover-region-toggle"
+        role="button"
+        aria-controls="popover-region-container-621f66395ea8f621f66395b62f7"
+        aria-haspopup="true"
+        aria-label="Afficher la fenêtre des notifications sans nouvelle notification"
+        tabindex="0">
+                <i class="icon fa fa-bell fa-fw "  title="Ouvrir/fermer le menu notifications" aria-label="Ouvrir/fermer le menu notifications"></i>
+        <div class="count-container hidden" data-region="count-container"
+        aria-label="Il y a 0 notifications non lues">0</div>
+
+    </div>
+    <div 
+        id="popover-region-container-621f66395ea8f621f66395b62f7"
+        class="popover-region-container"
+        data-region="popover-region-container"
+        aria-expanded="false"
+        aria-hidden="true"
+        aria-label="Fenêtre de notification"
+        role="region">
+        <div class="popover-region-header-container">
+            <h3 class="popover-region-header-text" data-region="popover-region-header-text">Notifications</h3>
+            <div class="popover-region-header-actions" data-region="popover-region-header-actions">        <a class="mark-all-read-button"
+           href="#"
+           title="Tout marquer comme lu"
+           data-action="mark-all-read"
+           role="button"
+           aria-label="Tout marquer comme lu">
+            <span class="normal-icon"><i class="icon fa fa-check fa-fw " aria-hidden="true"  ></i></span>
+            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+        </a>
+        <a href="https://moodle.unistra.fr/message/notificationpreferences.php?userid=66487"
+           title="Préférences de notification"
+           aria-label="Préférences de notification">
+            <i class="icon fa fa-cog fa-fw " aria-hidden="true"  ></i>
+        </a>
+</div>
+        </div>
+        <div class="popover-region-content-container" data-region="popover-region-content-container">
+            <div class="popover-region-content" data-region="popover-region-content">
+                        <div class="all-notifications"
+            data-region="all-notifications"
+            role="log"
+            aria-busy="false"
+            aria-atomic="false"
+            aria-relevant="additions"></div>
+        <div class="empty-message" tabindex="0" data-region="empty-message">Vous n'avez pas de notification</div>
+
+            </div>
+            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+        </div>
+                <a class="see-all-link"
+                    href="https://moodle.unistra.fr/message/output/popup/notifications.php">
+                    <div class="popover-region-footer-container">
+                        <div class="popover-region-seeall-text">Tout afficher</div>
+                    </div>
+                </a>
+    </div>
+</div><div class="popover-region collapsed" data-region="popover-region-messages">
+    <a id="message-drawer-toggle-621f663961ac0621f66395b62f8" class="nav-link d-inline-block popover-region-toggle position-relative" href="#"
+            role="button">
+        <i class="icon fa fa-comment fa-fw "  title="Ouvrir/fermer le tiroir des messages" aria-label="Ouvrir/fermer le tiroir des messages"></i>
+        <div class="count-container hidden" data-region="count-container"
+        aria-label="Il y a 0 conversations non lues">0</div>
+    </a>
+    <span class="sr-only sr-only-focusable" data-region="jumpto" tabindex="-1"></span></div>
+                </li>
+                <!-- user_menu -->
+                <li class="nav-item d-flex align-items-center">
+                    <div class="usermenu"><div class="action-menu moodle-actionmenu nowrap-items d-inline" id="action-menu-1" data-enhance="moodle-core-actionmenu">
+
+        <div class="menubar d-flex " id="action-menu-1-menubar" role="menubar">
+
+            
+
+
+                <div class="action-menu-trigger">
+                    <div class="dropdown">
+                        <a href="#" tabindex="0" class="d-inline-block  dropdown-toggle icon-no-margin" id="action-menu-toggle-1" aria-label="Menu utilisateur" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="action-menu-1-menu">
+                            
+                            <span class="userbutton"><span class="usertext mr-1">Nathanaël Derousseaux--Lebert</span><span class="avatars"><span class="avatar current"><img src="https://moodle.unistra.fr/theme/image.php/unistra/core/1643647014/u/f2" class="userpicture defaultuserpic" width="35" height="35" alt="" /></span></span></span>
+                                
+                            <b class="caret"></b>
+                        </a>
+                            <div class="dropdown-menu dropdown-menu-right menu  align-tr-br" id="action-menu-1-menu" data-rel="menu-content" aria-labelledby="action-menu-toggle-1" role="menu" data-align="tr-br">
+                                                                <a href="https://moodle.unistra.fr/my/" class="dropdown-item menu-action" role="menuitem" data-title="mymoodle,admin" aria-labelledby="actionmenuaction-1">
+                                <i class="icon fa fa-tachometer fa-fw " aria-hidden="true"  ></i>
+                                <span class="menu-action-text" id="actionmenuaction-1">Tableau de bord</span>
+                        </a>
+                    <div class="dropdown-divider" role="presentation"><span class="filler">&nbsp;</span></div>
+                                                                <a href="https://moodle.unistra.fr/user/profile.php?id=66487" class="dropdown-item menu-action" role="menuitem" data-title="profile,moodle" aria-labelledby="actionmenuaction-2">
+                                <i class="icon fa fa-user fa-fw " aria-hidden="true"  ></i>
+                                <span class="menu-action-text" id="actionmenuaction-2">Profil</span>
+                        </a>
+                                                                <a href="https://moodle.unistra.fr/grade/report/overview/index.php" class="dropdown-item menu-action" role="menuitem" data-title="grades,grades" aria-labelledby="actionmenuaction-3">
+                                <i class="icon fa fa-table fa-fw " aria-hidden="true"  ></i>
+                                <span class="menu-action-text" id="actionmenuaction-3">Notes</span>
+                        </a>
+                                                                <a href="https://moodle.unistra.fr/badges/mybadges.php" class="dropdown-item menu-action" role="menuitem" data-title="badges,badges" aria-labelledby="actionmenuaction-4">
+                                <i class="icon fa fa-trophy fa-fw " aria-hidden="true"  ></i>
+                                <span class="menu-action-text" id="actionmenuaction-4">Badges</span>
+                        </a>
+                                                                <a href="https://moodle.unistra.fr/user/preferences.php" class="dropdown-item menu-action" role="menuitem" data-title="preferences,moodle" aria-labelledby="actionmenuaction-5">
+                                <i class="icon fa fa-wrench fa-fw " aria-hidden="true"  ></i>
+                                <span class="menu-action-text" id="actionmenuaction-5">Préférences</span>
+                        </a>
+                    <div class="dropdown-divider" role="presentation"><span class="filler">&nbsp;</span></div>
+                                                                <a href="https://moodle.unistra.fr/login/logout.php?sesskey=IzWxGzYQuj" class="dropdown-item menu-action" role="menuitem" data-title="logout,moodle" aria-labelledby="actionmenuaction-6">
+                                <i class="icon fa fa-sign-out fa-fw " aria-hidden="true"  ></i>
+                                <span class="menu-action-text" id="actionmenuaction-6">Déconnexion</span>
+                        </a>
+                            </div>
+                    </div>
+                </div>
+
+        </div>
+
+</div></div>
+                </li>
+    			<li class="nav-item d-flex align-items-center">
+                    
+                </li>
+            </ul>
+    </nav>
+    
+	<div id="nav-drawer" data-region="drawer" class="hidden-print moodle-has-zindex closed" aria-hidden="true" tabindex="-1">
+	    <ul class="list-group metismenu">
+	                <li class="list-group-item" data-key="course-sections">
+	                    <a class="m-l-0 has-arrow" href="#">
+	                        <div class="media">
+	    						<span class="media-left">
+	    						<i class="icon fa fa-list fa-fw " aria-hidden="true"  ></i>
+	    						</span>
+	    						<span class="text m-l-0 media-body">Sections du cours</span>
+	    					</div>
+	                    </a>
+	                    <ul class="sub-list collapse">
+	                                <li class="list-group-item list-group-item-action " data-key="29754" data-hidden="0" data-nodetype="0" data-type="30">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=2266#section-0">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-folder-o fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">Généralités</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="29755" data-hidden="0" data-nodetype="0" data-type="30">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=2266#section-1">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-folder-o fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">Organisation</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="29756" data-hidden="0" data-nodetype="0" data-type="30">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=2266#section-2">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-folder-o fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">Supports</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="29757" data-hidden="0" data-nodetype="0" data-type="30">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=2266#section-3">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-folder-o fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">Programmation OpenMP : travaux pratiques</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="29758" data-hidden="0" data-nodetype="0" data-type="30">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=2266#section-4">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-folder-o fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">Programmation MPI : travaux pratiques</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="29759" data-hidden="0" data-nodetype="0" data-type="30">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=2266#section-5">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-folder-o fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">Contrôle continu</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                    </ul>
+	                </li>
+	                    <li class="list-group-item list-group-item-action " data-key="participants">
+	                        <a href="https://moodle.unistra.fr/user/index.php?id=2266">
+	    						<div class="media">
+	    							<span class="media-left">
+	    							<i class="icon fa fa-users fa-fw " aria-hidden="true"  ></i>
+	    							</span>
+	    						<span class="text m-l-0 media-body ">Participants</span>
+	    						</div>
+	                        </a>
+	                    </li>
+	                    <li class="list-group-item list-group-item-action " data-key="badgesview">
+	                        <a href="https://moodle.unistra.fr/badges/view.php?type=2&amp;id=2266">
+	    						<div class="media">
+	    							<span class="media-left">
+	    							<i class="icon fa fa-shield fa-fw " aria-hidden="true"  ></i>
+	    							</span>
+	    						<span class="text m-l-0 media-body ">Badges</span>
+	    						</div>
+	                        </a>
+	                    </li>
+	                    <li class="list-group-item list-group-item-action " data-key="competencies">
+	                        <a href="https://moodle.unistra.fr/admin/tool/lp/coursecompetencies.php?courseid=2266">
+	    						<div class="media">
+	    							<span class="media-left">
+	    							<i class="icon fa fa-check-square-o fa-fw " aria-hidden="true"  ></i>
+	    							</span>
+	    						<span class="text m-l-0 media-body ">Compétences</span>
+	    						</div>
+	                        </a>
+	                    </li>
+	                    <li class="list-group-item list-group-item-action " data-key="grades">
+	                        <a href="https://moodle.unistra.fr/grade/report/index.php?id=2266">
+	    						<div class="media">
+	    							<span class="media-left">
+	    							<i class="icon fa fa-table fa-fw " aria-hidden="true"  ></i>
+	    							</span>
+	    						<span class="text m-l-0 media-body ">Notes</span>
+	    						</div>
+	                        </a>
+	                    </li>
+	            </ul>
+	            <ul class="list-group metismenu">
+	                    <li class="list-group-item list-group-item-action " data-key="myhome">
+	                        <a href="https://moodle.unistra.fr/my/">
+	    						<div class="media">
+	    							<span class="media-left">
+	    							<i class="icon fa fa-tachometer fa-fw " aria-hidden="true"  ></i>
+	    							</span>
+	    						<span class="text m-l-0 media-body ">Tableau de bord</span>
+	    						</div>
+	                        </a>
+	                    </li>
+	                    <li class="list-group-item list-group-item-action " data-key="home">
+	                        <a href="https://moodle.unistra.fr/?redirect=0">
+	    						<div class="media">
+	    							<span class="media-left">
+	    							<i class="icon fa fa-home fa-fw " aria-hidden="true"  ></i>
+	    							</span>
+	    						<span class="text m-l-0 media-body ">Accueil du site</span>
+	    						</div>
+	                        </a>
+	                    </li>
+	                    <li class="list-group-item list-group-item-action " data-key="calendar">
+	                        <a href="https://moodle.unistra.fr/calendar/view.php?view=month&amp;course=2266">
+	    						<div class="media">
+	    							<span class="media-left">
+	    							<i class="icon fa fa-calendar fa-fw " aria-hidden="true"  ></i>
+	    							</span>
+	    						<span class="text m-l-0 media-body ">Calendrier</span>
+	    						</div>
+	                        </a>
+	                    </li>
+	                <li class="list-group-item" data-key="mycourses">
+	                    <a class="m-l-0 has-arrow" href="#">
+	                        <div class="media">
+	    						<span class="media-left">
+	    						<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    						</span>
+	    						<span class="text m-l-0 media-body">Mes cours</span>
+	    					</div>
+	                    </a>
+	                    <ul class="sub-list collapse">
+	                                <li class="list-group-item list-group-item-action " data-key="2436" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=2436">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">AlgoRés</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="794" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=794">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">Anglais-MI1B33-L3-S6</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="6653" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=6653">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">BDD2</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="5208" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=5208">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">GEO3D</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="12316" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=12316">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">GL 2021</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="7608" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=7608">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">GR-S5-L3I</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="789" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=789">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">IAR</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="11920" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=11920">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">IHM</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="13102" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=13102">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">L3Cert</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="2266" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=2266">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">L3IS6P-PP</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="1582" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=1582">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">L3S5-ASE</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="8637" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=8637">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">L3S5Info-Proba-Stats2</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="4946" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=4946">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">L3S6 TL</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="741" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=741">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">L3S6IA</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="1758" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=1758">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">PI20212022</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="10668" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=10668">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">PPE 2 l3</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="2409" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=2409">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">PSC-Info</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="825" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=825">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">PSC2122</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="2440" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=2440">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">RL </span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="4547" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=4547">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">RLI</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="14508" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=14508">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">Sondage L3 Informatique</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="129" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=129">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">Traitement du signal</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                                <li class="list-group-item list-group-item-action " data-key="742" data-hidden="0" data-nodetype="1" data-type="20">
+	                                    <a class="list-group-item list-group-item-action " href="https://moodle.unistra.fr/course/view.php?id=742">
+	    									<div class="media">
+	    										<span class="media-left">
+	    											<i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+	    										</span>
+	    										<span class="text m-l-0 media-body">pedagoL3info</span>
+	    									</div>
+	                                    </a>
+	                                </li>
+	                    </ul>
+	                </li>
+	                    <li class="list-group-item list-group-item-action " data-key="privatefiles">
+	                        <a href="https://moodle.unistra.fr/user/files.php">
+	    						<div class="media">
+	    							<span class="media-left">
+	    							<i class="icon fa fa-file-o fa-fw " aria-hidden="true"  ></i>
+	    							</span>
+	    						<span class="text m-l-0 media-body ">Fichiers personnels</span>
+	    						</div>
+	                        </a>
+	                    </li>
+	    </ul>	</div>
+
+    
+	<div id="page" class="container-fluid d-print-block ">
+	
+	
+        <header id="page-header" class="row">
+    <div class="col-12 pt-3 pb-3">
+        <div class="card ">
+            <div class="card-body ">
+                <div class="d-flex">
+                    <div class="mr-auto">
+                        <div class="page-context-header"><div class="page-header-headings"><h1>L3IS6P - Programmation parallèle</h1></div></div>
+                    </div>
+                        <div class="context-header-settings-menu ml-4">
+                            <div class="action-menu moodle-actionmenu d-inline" id="action-menu-2" data-enhance="moodle-core-actionmenu">
+
+        <div class="menubar d-flex " id="action-menu-2-menubar" role="menubar">
+
+            
+
+
+                <div class="action-menu-trigger">
+                    <div class="dropdown">
+                        <a href="#" tabindex="0" class="d-inline-block  dropdown-toggle icon-no-margin" id="action-menu-toggle-2" aria-label="Menu d&#039;actions" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="action-menu-2-menu">
+                            
+                            
+<i class="icon fa fa-cog fa-fw "  title="Menu d&#039;actions" aria-label="Menu d&#039;actions"></i>                                
+                        </a>
+                            <div class="dropdown-menu dropdown-menu-right menu align-tr-br" id="action-menu-2-menu" data-rel="menu-content" aria-labelledby="action-menu-toggle-2" role="menu" data-align="tr-br">
+                                            <div class="dropdown-item">
+
+    <a href="https://moodle.unistra.fr/enrol/self/unenrolself.php?enrolid=7236" id="action_link621f66395b62f17" class=""  role="menuitem" ><i class="icon fa fa-user fa-fw " aria-hidden="true"  ></i>Me désinscrire de L3IS6P-PP</a>
+
+
+
+</div>
+                            </div>
+                    </div>
+                </div>
+
+        </div>
+
+</div>
+                        </div>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <div id="page-navbar">
+                        <nav>
+    <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="https://moodle.unistra.fr/my/" >Tableau de bord</a></li>
+                <li class="breadcrumb-item"><span class="no-link">Mes cours</span></li>
+                <li class="breadcrumb-item"><a href="https://moodle.unistra.fr/course/view.php?id=2266" title="L3IS6P - Programmation parallèle">L3IS6P-PP</a></li>
+                <li class="breadcrumb-item"><a href="https://moodle.unistra.fr/course/view.php?id=2266#section-4" >Programmation MPI : travaux pratiques</a></li>
+                <li class="breadcrumb-item"><a href="https://moodle.unistra.fr/mod/page/view.php?id=123026" title="Page">Exercice 4 : tri-fusion</a></li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="ml-auto d-flex">
+                        
+                    </div>
+                    <div id="course-header">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div id="page-content" class="row pb-3 d-print-block">
+            <div id="region-main-box" class="col-12">
+                    
+                    <div id="unistra-course-settings" class="card" >
+                        <h2></h2>
+                        <div class="mx-2 pt-2">
+                            <ul class="nav nav-tabs" role="tablist">
+                            <!-- First the top most node and immediate children -->
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#course-settings-courseadmin" data-toggle="tab" role="tab">Administration du cours</a>
+                                </li>
+                            <!-- Now the first level children with sub nodes -->
+                            </ul>
+                    
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="course-settings-courseadmin" role="tabpanel">
+                                    <div class="card">
+                                        <div class="card-body pb-0">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    
+                                                    <h4>Administration du cours</h4>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <ul class="list-unstyled">
+                                                                    <li><a href="https://moodle.unistra.fr/enrol/self/unenrolself.php?enrolid=7236">Me désinscrire de L3IS6P-PP</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <section id="region-main"  aria-label="Contenu">
+                            <span class="notifications" id="user-notifications"></span>
+                            <div role="main"><span id="maincontent"></span><h2>Exercice 4 : tri-fusion</h2><div class="box py-3 generalbox center clearfix"><div class="no-overflow"><p>Voici un programme d'exemple qui effectue un tri par appel à quicksort et fusion :&nbsp;<a href="http://icps-file-server.u-strasbg.fr/~loechner/ens/parall/MPI/tp/tri_qs_fusion.c">tri_qs_fusion.c</a>.&nbsp;Un tableau est coupé en deux partie égales, qui sont triées, puis les deux parties triées sont fusionnées.</p>
+<p>Écrivez un programme MPI qui effectue le découpage d'un tableau en autant de parties qu'il y a de processus. Chaque processus doit trier sa partie de tableau, puis ils doivent, collaborativement, effectuer la fusion des différentes parties deux à deux. Vous pouvez pour cela réutiliser la fonction <span class="" style="font-family: &quot;Courier New&quot;, Courier, mono;"><b>fusion()</b></span>. Pour simplifier, vous pouvez supposer que le nombre de processus MPI est une puissance de deux et que le nombre de processus divise N.</p><p>Dessinez l'arbre binaire de réduction pour vous aider à concevoir votre algorithme. Utilisez une variable initialisée à 1 et multipliée par 2 à chaque étape de votre boucle principale. Voici les deux premières étapes à titre d'exemple : à l'étape 1 tous les processus pairs reçoivent un partie de tableau du processus impair suivant, et effectuent la fusion ; les processus impairs envoient leur partie de tableau et s'arrêtent là (ils n'ont plus rien à faire). À l'étape deux, tous les processus multiples de 4 reçoivent une partie de tableau du processus actif suivant et font la fusion ; les autres envoient leur partie de tableau et s'arrêtent. Et ainsi de suite...</p><p>On ne vous demande pas de rendre de tests de performance, mais un programme qui fonctionne quel que soit le nombre de processus (puissance de 2). Vous pouvez tester votre programme avec un nombre de processus quelconque en augmentant le nombre de slots de votre machine locale dans un fichier <span class="" style="font-family: &quot;Courier New&quot;, Courier, mono;"><b>hosts.txt</b></span>. Vous décrirez voter algorithme et votre méthode de tests dans votre rapport (un fichier .md à déposer sur moodle).<br></p>
+<p></p></div></div><div class="modified">Modifié le: mercredi 17 mars 2021, 11:21</div></div>
+                            <div class="mt-5 mb-1 activity-navigation container-fluid">
+<div class="row">
+    <div class="col-md-4">        <div class="float-left">
+                <a href="https://moodle.unistra.fr/mod/page/view.php?id=123024&forceview=1" id="prev-activity-link" class="btn btn-link"  title="Exercice 3 : produit de matrices" >&#x25C0;&#xFE0E; Exercice 3 : produit de matrices</a>
+
+        </div>
+</div>
+    <div class="col-md-4">        <div class="mdl-align">
+            <div class="urlselect">
+    <form method="post" action="https://moodle.unistra.fr/course/jumpto.php" class="form-inline" id="url_select_f621f66395b62f18">
+        <input type="hidden" name="sesskey" value="IzWxGzYQuj">
+            <label for="jump-to-activity" class="sr-only">
+                Aller à…
+            </label>
+        <select  id="jump-to-activity" class="custom-select urlselect" name="jump"
+                 >
+                    <option value="" selected>Aller à…</option>
+                    <option value="/mod/forum/view.php?id=122987&amp;forceview=1" >Annonces</option>
+                    <option value="/mod/resource/view.php?id=122994&amp;forceview=1" >Cours introduction au calcul parallèle</option>
+                    <option value="/mod/resource/view.php?id=122995&amp;forceview=1" >Référence 1 - cours Vincent Loechner</option>
+                    <option value="/mod/resource/view.php?id=122996&amp;forceview=1" >Référence 2 - cours Doug James</option>
+                    <option value="/mod/url/view.php?id=122997&amp;forceview=1" >Référence 3 - Cours Blaise Barney</option>
+                    <option value="/mod/resource/view.php?id=122998&amp;forceview=1" >Cours OpenMP</option>
+                    <option value="/mod/url/view.php?id=122999&amp;forceview=1" >Standard OpenMP 5.0</option>
+                    <option value="/mod/url/view.php?id=123000&amp;forceview=1" >Carte de référence OpenMP 3.1 (suffisante pour nous)</option>
+                    <option value="/mod/resource/view.php?id=123001&amp;forceview=1" >Cours MPI</option>
+                    <option value="/mod/resource/view.php?id=123002&amp;forceview=1" >Standard MPI version 3.1 </option>
+                    <option value="/mod/resource/view.php?id=123011&amp;forceview=1" >Sujet du TP1 : OpenMP</option>
+                    <option value="/mod/resource/view.php?id=123012&amp;forceview=1" >Codes du TP1</option>
+                    <option value="/mod/resource/view.php?id=123014&amp;forceview=1" >Sujet du TP2 : Parallélisation</option>
+                    <option value="/mod/resource/view.php?id=123015&amp;forceview=1" >Codes du TP2</option>
+                    <option value="/mod/resource/view.php?id=123017&amp;forceview=1" >Sujet du TP3 : Synchronisation et tâches</option>
+                    <option value="/mod/resource/view.php?id=123018&amp;forceview=1" >Codes du TP3</option>
+                    <option value="/mod/folder/view.php?id=566347&amp;forceview=1" >configs SSH plateforme 2 mars 2022</option>
+                    <option value="/mod/page/view.php?id=123021&amp;forceview=1" >Exercice 1 : hello world - vérification du bon fonctionnement de votre environnement</option>
+                    <option value="/mod/page/view.php?id=123022&amp;forceview=1" >Exercice 2 : pingpong</option>
+                    <option value="/mod/page/view.php?id=123024&amp;forceview=1" >Exercice 3 : produit de matrices</option>
+        </select>
+            <noscript>
+                <input type="submit" class="btn btn-secondary ml-1" value="Valider">
+            </noscript>
+    </form>
+</div>
+
+        </div>
+</div>
+    <div class="col-md-4">        <div class="float-right">
+            
+        </div>
+</div>
+</div>
+</div>
+                            
+				</section>
+            </div>
+        </div>
+    </div>
+	<div
+    id="drawer-621f6639665af621f66395b62f19"
+    class=" drawer bg-white hidden"
+    aria-expanded="false"
+    aria-hidden="true"
+    data-region="right-hand-drawer"
+    role="region"
+    tabindex="0"
+>
+            <div id="message-drawer-621f6639665af621f66395b62f19" class="message-app" data-region="message-drawer" role="region">
+            <div class="closewidget bg-light border-bottom text-right">
+                <a class="text-dark" data-action="closedrawer" href="#"
+                   title="Fermer" aria-label="Fermer"
+                >
+                    <i class="icon fa fa-window-close fa-fw " aria-hidden="true"  ></i>
+                </a>
+            </div>
+            <div class="header-container position-relative" data-region="header-container">
+                <div class="hidden border-bottom px-2 py-3" aria-hidden="true" data-region="view-contacts">
+                    <div class="d-flex align-items-center">
+                        <div class="align-self-stretch">
+                            <a class="h-100 d-flex align-items-center mr-2" href="#" data-route-back role="button">
+                                <div class="icon-back-in-drawer">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-chevron-left fa-fw " aria-hidden="true"  ></i></span>
+                                    <span class="dir-ltr-hide"><i class="icon fa fa-chevron-right fa-fw " aria-hidden="true"  ></i></span>
+                                </div>
+                                <div class="icon-back-in-app">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-times fa-fw " aria-hidden="true"  ></i></span>
+                                </div>                            </a>
+                        </div>
+                        <div>
+                            Contacts
+                        </div>
+                        <div class="ml-auto">
+                            <a href="#" data-route="view-search" role="button" aria-label="Recherche">
+                                <i class="icon fa fa-search fa-fw " aria-hidden="true"  ></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>                
+                <div
+                    class="hidden bg-white position-relative border-bottom p-1 p-sm-2"
+                    aria-hidden="true"
+                    data-region="view-conversation"
+                >
+                    <div class="hidden" data-region="header-content"></div>
+                    <div class="hidden" data-region="header-edit-mode">
+                        
+                        <div class="d-flex p-2 align-items-center">
+                            Messages sélectionnés :
+                            <span class="ml-1" data-region="message-selected-court">1</span>
+                            <button type="button" class="ml-auto close" aria-label="Annuler la sélection de message"
+                                data-action="cancel-edit-mode">
+                                    <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div data-region="header-placeholder">
+                        <div class="d-flex">
+                            <div
+                                class="ml-2 rounded-circle bg-pulse-grey align-self-center"
+                                style="height: 38px; width: 38px"
+                            >
+                            </div>
+                            <div class="ml-2 " style="flex: 1">
+                                <div
+                                    class="mt-1 bg-pulse-grey w-75"
+                                    style="height: 16px;"
+                                >
+                                </div>
+                            </div>
+                            <div
+                                class="ml-2 bg-pulse-grey align-self-center"
+                                style="height: 16px; width: 20px"
+                            >
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="hidden position-absolute z-index-1"
+                        data-region="confirm-dialogue-container"
+                        style="top: 0; bottom: -1px; right: 0; left: 0; background: rgba(0,0,0,0.3);"
+                    ></div>
+                </div>                <div class="border-bottom  p-1 px-sm-2 py-sm-3" aria-hidden="false"  data-region="view-overview">
+                    <div class="d-flex align-items-center">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text pr-2 bg-white">
+                                    <i class="icon fa fa-search fa-fw " aria-hidden="true"  ></i>
+                                </span>
+                            </div>
+                            <input
+                                type="text"
+                                class="form-control border-left-0"
+                                placeholder="Recherche"
+                                aria-label="Recherche"
+                                data-region="view-overview-search-input"
+                            >
+                        </div>
+                        <div class="ml-2">
+                            <a
+                                href="#"
+                                data-route="view-settings"
+                                data-route-param="66487"
+                                aria-label="Réglages"
+                                role="button"
+                            >
+                                <i class="icon fa fa-cog fa-fw " aria-hidden="true"  ></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-right mt-sm-3">
+                        <a href="#" data-route="view-contacts" role="button">
+                            <i class="icon fa fa-user fa-fw " aria-hidden="true"  ></i>
+                            Contacts
+                            <span class="badge badge-primary bg-primary ml-2 hidden"
+                            data-region="contact-request-count"
+                            aria-label="Il y a 0 demandes de contact en attente">
+                                0
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hidden border-bottom px-2 py-3 view-search"  aria-hidden="true" data-region="view-search">
+                    <div class="d-flex align-items-center">
+                        <a
+                            class="mr-2 align-self-stretch d-flex align-items-center"
+                            href="#"
+                            data-route-back
+                            data-action="cancel-search"
+                            role="button"
+                        >
+                            <div class="icon-back-in-drawer">
+                                <span class="dir-rtl-hide"><i class="icon fa fa-chevron-left fa-fw " aria-hidden="true"  ></i></span>
+                                <span class="dir-ltr-hide"><i class="icon fa fa-chevron-right fa-fw " aria-hidden="true"  ></i></span>
+                            </div>
+                            <div class="icon-back-in-app">
+                                <span class="dir-rtl-hide"><i class="icon fa fa-times fa-fw " aria-hidden="true"  ></i></span>
+                            </div>                        </a>
+                        <div class="input-group">
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Recherche"
+                                aria-label="Recherche"
+                                data-region="search-input"
+                            >
+                            <div class="input-group-append">
+                                <button
+                                    class="btn btn-outline-secondary"
+                                    type="button"
+                                    data-action="search"
+                                    aria-label="Recherche"
+                                >
+                                    <span data-region="search-icon-container">
+                                        <i class="icon fa fa-search fa-fw " aria-hidden="true"  ></i>
+                                    </span>
+                                    <span class="hidden" data-region="loading-icon-container">
+                                        <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="hidden border-bottom px-2 py-3" aria-hidden="true" data-region="view-settings">
+                    <div class="d-flex align-items-center">
+                        <div class="align-self-stretch" >
+                            <a class="h-100 d-flex mr-2 align-items-center" href="#" data-route-back role="button">
+                                <div class="icon-back-in-drawer">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-chevron-left fa-fw " aria-hidden="true"  ></i></span>
+                                    <span class="dir-ltr-hide"><i class="icon fa fa-chevron-right fa-fw " aria-hidden="true"  ></i></span>
+                                </div>
+                                <div class="icon-back-in-app">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-times fa-fw " aria-hidden="true"  ></i></span>
+                                </div>                            </a>
+                        </div>
+                        <div>
+                            Paramètres
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="body-container position-relative" data-region="body-container">
+                
+                <div
+                    class="hidden"
+                    data-region="view-contact"
+                    aria-hidden="true"
+                >
+                    <div class="p-2 pt-3" data-region="content-container"></div>
+                </div>                <div class="hidden h-100" data-region="view-contacts" aria-hidden="true" data-user-id="66487">
+                    <div class="d-flex flex-column h-100">
+                        <div class="p-3 border-bottom">
+                            <ul class="nav nav-pills nav-fill" role="tablist">
+                                <li class="nav-item">
+                                    <a
+                                        id="contacts-tab-621f6639665af621f66395b62f19"
+                                        class="nav-link active"
+                                        href="#contacts-tab-panel-621f6639665af621f66395b62f19"
+                                        data-toggle="tab"
+                                        data-action="show-contacts-section"
+                                        role="tab"
+                                        aria-controls="contacts-tab-panel-621f6639665af621f66395b62f19"
+                                        aria-selected="true"
+                                    >
+                                        Contacts
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        id="requests-tab-621f6639665af621f66395b62f19"
+                                        class="nav-link"
+                                        href="#requests-tab-panel-621f6639665af621f66395b62f19"
+                                        data-toggle="tab"
+                                        data-action="show-requests-section"
+                                        role="tab"
+                                        aria-controls="requests-tab-panel-621f6639665af621f66395b62f19"
+                                        aria-selected="false"
+                                    >
+                                        Demandes
+                                        <span class="badge badge-primary bg-primary ml-2 hidden"
+                                        data-region="contact-request-count"
+                                        aria-label="Il y a 0 demandes de contact en attente">
+                                            0
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content d-flex flex-column h-100">
+                                            <div
+                    class="tab-pane fade show active h-100 lazy-load-list"
+                    aria-live="polite"
+                    data-region="lazy-load-list"
+                    data-user-id="66487"
+                                        id="contacts-tab-panel-621f6639665af621f66395b62f19"
+                    data-section="contacts"
+                    role="tabpanel"
+                    aria-labelledby="contacts-tab-621f6639665af621f66395b62f19"
+
+                >
+                    
+                    <div class="hidden text-center p-2" data-region="empty-message-container">
+                        Aucun contact
+                    </div>
+                    <div class="hidden list-group" data-region="content-container">
+                        
+                    </div>
+                    <div class="list-group" data-region="placeholder-container">
+                        
+                    </div>
+                    <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container" >
+                        <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+                    </div>
+                </div>
+                
+                                            <div
+                    class="tab-pane fade h-100 lazy-load-list"
+                    aria-live="polite"
+                    data-region="lazy-load-list"
+                    data-user-id="66487"
+                                        id="requests-tab-panel-621f6639665af621f66395b62f19"
+                    data-section="requests"
+                    role="tabpanel"
+                    aria-labelledby="requests-tab-621f6639665af621f66395b62f19"
+
+                >
+                    
+                    <div class="hidden text-center p-2" data-region="empty-message-container">
+                        Aucune demande de contact
+                    </div>
+                    <div class="hidden list-group" data-region="content-container">
+                        
+                    </div>
+                    <div class="list-group" data-region="placeholder-container">
+                        
+                    </div>
+                    <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container" >
+                        <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+                    </div>
+                </div>
+                        </div>
+                    </div>
+                </div>                
+                <div
+                    class="view-conversation hidden h-100"
+                    aria-hidden="true"
+                    data-region="view-conversation"
+                    data-user-id="66487"
+                    data-midnight="1646175600"
+                    data-message-poll-min="10"
+                    data-message-poll-max="120"
+                    data-message-poll-after-max="300"
+                    style="overflow-y: auto; overflow-x: hidden"
+                >
+                    <div class="position-relative h-100" data-region="content-container" style="overflow-y: auto; overflow-x: hidden">
+                        <div class="content-message-container hidden h-100 px-2 pt-0" data-region="content-message-container" role="log" style="overflow-y: auto; overflow-x: hidden">
+                            <div class="py-3 sticky-top z-index-1 border-bottom text-center hidden" data-region="contact-request-sent-message-container">
+                                <p class="m-0">Demande de contact envoyée</p>
+                                <p class="font-italic font-weight-light" data-region="text"></p>
+                            </div>
+                            <div class="p-3 text-center hidden" data-region="self-conversation-message-container">
+                                <p class="m-0">Espace personnel</p>
+                                <p class="font-italic font-weight-light" data-region="text">Enregistrer des brouillons, liens, note, etc. pour un usage ultérieur.</p>
+                           </div>
+                            <div class="hidden text-center p-3" data-region="more-messages-loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</div>
+                        </div>
+                        <div class="p-4 w-100 h-100 hidden position-absolute z-index-1" data-region="confirm-dialogue-container" style="top: 0; background: rgba(0,0,0,0.3);">
+                            
+                            <div class="p-3 bg-white" data-region="confirm-dialogue" role="alert">
+                                <p class="text-muted" data-region="dialogue-text"></p>
+                                <div class="mb-2 custom-control custom-checkbox hidden" data-region="delete-messages-for-all-users-toggle-container">
+                                    <input type="checkbox" class="custom-control-input" id="delete-messages-for-all-users" data-region="delete-messages-for-all-users-toggle">
+                                    <label class="custom-control-label text-muted" for="delete-messages-for-all-users">
+                                        Supprimer pour moi et et pour tous les autres
+                                    </label>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-block">
+                                    <span data-region="dialogue-button-text">Bloc</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-unblock">
+                                    <span data-region="dialogue-button-text">Débloquer</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-remove-contact">
+                                    <span data-region="dialogue-button-text">Supprimer</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-add-contact">
+                                    <span data-region="dialogue-button-text">Ajouter</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-delete-selected-messages">
+                                    <span data-region="dialogue-button-text">Supprimer</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-delete-conversation">
+                                    <span data-region="dialogue-button-text">Supprimer</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="request-add-contact">
+                                    <span data-region="dialogue-button-text">Envoyer une demande de contact</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="accept-contact-request">
+                                    <span data-region="dialogue-button-text">Accepter et ajouter aux contacts</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-secondary btn-block hidden" data-action="decline-contact-request">
+                                    <span data-region="dialogue-button-text">Décliner</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block" data-action="okay-confirm">OK</button>
+                                <button type="button" class="btn btn-secondary btn-block" data-action="cancel-confirm">Annuler</button>
+                            </div>
+                        </div>
+                        <div class="px-2 pb-2 pt-0" data-region="content-placeholder">
+                            <div class="h-100 d-flex flex-column">
+                                <div
+                                    class="px-2 pb-2 pt-0 bg-light h-100"
+                                    style="overflow-y: auto"
+                                >
+                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                </div>
+                            </div>                        </div>
+                    </div>
+                </div>
+                
+                <div
+                    class="hidden"
+                    aria-hidden="true"
+                    data-region="view-group-info"
+                >
+                    <div
+                        class="pt-3 h-100 d-flex flex-column"
+                        data-region="group-info-content-container"
+                        style="overflow-y: auto"
+                    ></div>
+                </div>                <div class="h-100 view-overview-body" aria-hidden="false" data-region="view-overview"  data-user-id="66487">
+                    <div id="message-drawer-view-overview-container-621f6639665af621f66395b62f19" class="d-flex flex-column h-100" style="overflow-y: auto">
+                            
+                            
+                            <div
+                                class="section border-0 card"
+                                data-region="view-overview-favourites"
+                            >
+                                <div id="view-overview-favourites-toggle" class="card-header p-0" data-region="toggle">
+                                    <button
+                                        class="btn btn-link w-100 text-left p-1 p-sm-2 d-flex align-items-center overview-section-toggle collapsed"
+                                        data-toggle="collapse"
+                                        data-target="#view-overview-favourites-target-621f6639665af621f66395b62f19"
+                                        aria-expanded="false"
+                                        aria-controls="view-overview-favourites-target-621f6639665af621f66395b62f19"
+                                    >
+                                        <span class="collapsed-icon-container">
+                                            <i class="icon fa fa-caret-right fa-fw " aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="expanded-icon-container">
+                                            <i class="icon fa fa-caret-down fa-fw " aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="font-weight-bold">Favoris</span>
+                                        <small class="hidden ml-1" data-region="section-total-count-container"
+                                        aria-label=" conversations">
+                                            (<span data-region="section-total-count"></span>)
+                                        </small>
+                                        <span class="hidden ml-2" data-region="loading-icon-container">
+                                            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+                                        </span>
+                                        <span class="hidden badge badge-pill badge-primary ml-auto bg-primary"
+                                        data-region="section-unread-count"
+                                        >
+                                            
+                                        </span>
+                                    </button>
+                                </div>
+                                                            <div
+                                class="collapse border-bottom  lazy-load-list"
+                                aria-live="polite"
+                                data-region="lazy-load-list"
+                                data-user-id="66487"
+                                            id="view-overview-favourites-target-621f6639665af621f66395b62f19"
+            aria-labelledby="view-overview-favourites-toggle"
+            data-parent="#message-drawer-view-overview-container-621f6639665af621f66395b62f19"
+
+                            >
+                                
+                                <div class="hidden text-center p-2" data-region="empty-message-container">
+                                            <p class="text-muted mt-2">Aucune conversation favorite</p>
+
+                                </div>
+                                <div class="hidden list-group" data-region="content-container">
+                                    
+                                </div>
+                                <div class="list-group" data-region="placeholder-container">
+                                            <div class="text-center py-2"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</div>
+
+                                </div>
+                                <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container" >
+                                    <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+                            <div
+                                class="section border-0 card"
+                                data-region="view-overview-group-messages"
+                            >
+                                <div id="view-overview-group-messages-toggle" class="card-header p-0" data-region="toggle">
+                                    <button
+                                        class="btn btn-link w-100 text-left p-1 p-sm-2 d-flex align-items-center overview-section-toggle collapsed"
+                                        data-toggle="collapse"
+                                        data-target="#view-overview-group-messages-target-621f6639665af621f66395b62f19"
+                                        aria-expanded="false"
+                                        aria-controls="view-overview-group-messages-target-621f6639665af621f66395b62f19"
+                                    >
+                                        <span class="collapsed-icon-container">
+                                            <i class="icon fa fa-caret-right fa-fw " aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="expanded-icon-container">
+                                            <i class="icon fa fa-caret-down fa-fw " aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="font-weight-bold">Groupe</span>
+                                        <small class="hidden ml-1" data-region="section-total-count-container"
+                                        aria-label=" conversations">
+                                            (<span data-region="section-total-count"></span>)
+                                        </small>
+                                        <span class="hidden ml-2" data-region="loading-icon-container">
+                                            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+                                        </span>
+                                        <span class="hidden badge badge-pill badge-primary ml-auto bg-primary"
+                                        data-region="section-unread-count"
+                                        >
+                                            
+                                        </span>
+                                    </button>
+                                </div>
+                                                            <div
+                                class="collapse border-bottom  lazy-load-list"
+                                aria-live="polite"
+                                data-region="lazy-load-list"
+                                data-user-id="66487"
+                                            id="view-overview-group-messages-target-621f6639665af621f66395b62f19"
+            aria-labelledby="view-overview-group-messages-toggle"
+            data-parent="#message-drawer-view-overview-container-621f6639665af621f66395b62f19"
+
+                            >
+                                
+                                <div class="hidden text-center p-2" data-region="empty-message-container">
+                                            <p class="text-muted mt-2">Pas de conversation de groupe</p>
+
+                                </div>
+                                <div class="hidden list-group" data-region="content-container">
+                                    
+                                </div>
+                                <div class="list-group" data-region="placeholder-container">
+                                            <div class="text-center py-2"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</div>
+
+                                </div>
+                                <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container" >
+                                    <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+                            <div
+                                class="section border-0 card"
+                                data-region="view-overview-messages"
+                            >
+                                <div id="view-overview-messages-toggle" class="card-header p-0" data-region="toggle">
+                                    <button
+                                        class="btn btn-link w-100 text-left p-1 p-sm-2 d-flex align-items-center overview-section-toggle collapsed"
+                                        data-toggle="collapse"
+                                        data-target="#view-overview-messages-target-621f6639665af621f66395b62f19"
+                                        aria-expanded="false"
+                                        aria-controls="view-overview-messages-target-621f6639665af621f66395b62f19"
+                                    >
+                                        <span class="collapsed-icon-container">
+                                            <i class="icon fa fa-caret-right fa-fw " aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="expanded-icon-container">
+                                            <i class="icon fa fa-caret-down fa-fw " aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="font-weight-bold">Privée</span>
+                                        <small class="hidden ml-1" data-region="section-total-count-container"
+                                        aria-label=" conversations">
+                                            (<span data-region="section-total-count"></span>)
+                                        </small>
+                                        <span class="hidden ml-2" data-region="loading-icon-container">
+                                            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+                                        </span>
+                                        <span class="hidden badge badge-pill badge-primary ml-auto bg-primary"
+                                        data-region="section-unread-count"
+                                        >
+                                            
+                                        </span>
+                                    </button>
+                                </div>
+                                                            <div
+                                class="collapse border-bottom  lazy-load-list"
+                                aria-live="polite"
+                                data-region="lazy-load-list"
+                                data-user-id="66487"
+                                            id="view-overview-messages-target-621f6639665af621f66395b62f19"
+            aria-labelledby="view-overview-messages-toggle"
+            data-parent="#message-drawer-view-overview-container-621f6639665af621f66395b62f19"
+
+                            >
+                                
+                                <div class="hidden text-center p-2" data-region="empty-message-container">
+                                            <p class="text-muted mt-2">Pas de conversation privée</p>
+
+                                </div>
+                                <div class="hidden list-group" data-region="content-container">
+                                    
+                                </div>
+                                <div class="list-group" data-region="placeholder-container">
+                                            <div class="text-center py-2"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</div>
+
+                                </div>
+                                <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container" >
+                                    <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+                </div>
+                
+                <div
+                    data-region="view-search"
+                    aria-hidden="true"
+                    class="h-100 hidden"
+                    data-user-id="66487"
+                    data-users-offset="0"
+                    data-messages-offset="0"
+                    style="overflow-y: auto"
+                    
+                >
+                    <div class="hidden" data-region="search-results-container" style="overflow-y: auto">
+                        
+                        <div class="d-flex flex-column">
+                            <div class="mb-3 bg-white" data-region="all-contacts-container">
+                                <div data-region="contacts-container"  class="pt-2">
+                                    <h4 class="h6 px-2">Contacts</h4>
+                                    <div class="list-group" data-region="list"></div>
+                                </div>
+                                <div data-region="non-contacts-container" class="pt-2 border-top">
+                                    <h4 class="h6 px-2">Non contact</h4>
+                                    <div class="list-group" data-region="list"></div>
+                                </div>
+                                <div class="text-right">
+                                    <button class="btn btn-link text-primary" data-action="load-more-users">
+                                        <span data-region="button-text">Charger plus</span>
+                                        <span data-region="loading-icon-container" class="hidden"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="bg-white" data-region="messages-container">
+                                <h4 class="h6 px-2 pt-2">Messages personnels</h4>
+                                <div class="list-group" data-region="list"></div>
+                                <div class="text-right">
+                                    <button class="btn btn-link text-primary" data-action="load-more-messages">
+                                        <span data-region="button-text">Charger plus</span>
+                                        <span data-region="loading-icon-container" class="hidden"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="hidden p-3 text-center" data-region="no-results-container">Aucun résultat</p>
+                        </div>                    </div>
+                    <div class="hidden" data-region="loading-placeholder">
+                        <div class="text-center pt-3 icon-size-4"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</div>
+                    </div>
+                    <div class="p-3 text-center" data-region="empty-message-container">
+                        <p>Rechercher des personnes et des messages</p>
+                    </div>
+                </div>                
+                <div class="h-100 hidden bg-white" aria-hidden="true" data-region="view-settings">
+                    <div class="hidden" data-region="content-container">
+                        
+                        <div data-region="settings" class="p-3">
+                            <h3 class="h6 font-weight-bold">Confidentialité</h3>
+                            <p>Vous pouvez choisir qui peut vous envoyer un message personnel</p>
+                            <div data-preference="blocknoncontacts" class="mb-3">
+                                <fieldset>
+                                    <legend class="sr-only">Accepter des messages de :</legend>
+                                        <div class="custom-control custom-radio mb-2">
+                                            <input
+                                                type="radio"
+                                                name="message_blocknoncontacts"
+                                                class="custom-control-input"
+                                                id="block-noncontacts-621f6639665af621f66395b62f19-1"
+                                                value="1"
+                                            >
+                                            <label class="custom-control-label ml-2" for="block-noncontacts-621f6639665af621f66395b62f19-1">
+                                                Mes contacts seulement
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio mb-2">
+                                            <input
+                                                type="radio"
+                                                name="message_blocknoncontacts"
+                                                class="custom-control-input"
+                                                id="block-noncontacts-621f6639665af621f66395b62f19-0"
+                                                value="0"
+                                            >
+                                            <label class="custom-control-label ml-2" for="block-noncontacts-621f6639665af621f66395b62f19-0">
+                                                Mes contacts et tout le monde dans mes cours
+                                            </label>
+                                        </div>
+                                </fieldset>
+                            </div>
+                        
+                            <div class="hidden" data-region="notification-preference-container">
+                                <h3 class="mb-2 mt-4 h6 font-weight-bold">Préférences de notification</h3>
+                            </div>
+                        
+                            <h3 class="mb-2 mt-4 h6 font-weight-bold">Général</h3>
+                            <div data-preference="entertosend">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="enter-to-send-621f6639665af621f66395b62f19" checked>
+                                    <label class="custom-control-label" for="enter-to-send-621f6639665af621f66395b62f19">
+                                        Taper entrée pour envoyer
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-region="placeholder-container">
+                        
+                        <div class="d-flex flex-column p-3">
+                            <div class="w-25 bg-pulse-grey h6" style="height: 18px"></div>
+                            <div class="w-75 bg-pulse-grey mb-4" style="height: 18px"></div>
+                            <div class="mb-3">
+                                <div class="w-100 d-flex mb-3">
+                                    <div class="bg-pulse-grey rounded-circle" style="width: 18px; height: 18px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                                <div class="w-100 d-flex mb-3">
+                                    <div class="bg-pulse-grey rounded-circle" style="width: 18px; height: 18px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                                <div class="w-100 d-flex mb-3">
+                                    <div class="bg-pulse-grey rounded-circle" style="width: 18px; height: 18px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                            </div>
+                            <div class="w-50 bg-pulse-grey h6 mb-3 mt-2" style="height: 18px"></div>
+                            <div class="mb-4">
+                                <div class="w-100 d-flex mb-2 align-items-center">
+                                    <div class="bg-pulse-grey w-25" style="width: 18px; height: 27px"></div>
+                                    <div class="bg-pulse-grey w-25 ml-2" style="height: 18px"></div>
+                                </div>
+                                <div class="w-100 d-flex mb-2 align-items-center">
+                                    <div class="bg-pulse-grey w-25" style="width: 18px; height: 27px"></div>
+                                    <div class="bg-pulse-grey w-25 ml-2" style="height: 18px"></div>
+                                </div>
+                            </div>
+                            <div class="w-25 bg-pulse-grey h6 mb-3 mt-2" style="height: 18px"></div>
+                            <div class="mb-3">
+                                <div class="w-100 d-flex mb-2 align-items-center">
+                                    <div class="bg-pulse-grey w-25" style="width: 18px; height: 27px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                            </div>
+                        </div>                    </div>
+                </div>            </div>
+            <div class="footer-container position-relative" data-region="footer-container">
+                
+                <div
+                    class="hidden border-top bg-white position-relative"
+                    aria-hidden="true"
+                    data-region="view-conversation"
+                    data-enter-to-send="1"
+                >
+                    <div class="hidden p-sm-2" data-region="content-messages-footer-container">
+                        
+                            <div
+                                class="emoji-auto-complete-container w-100 hidden"
+                                data-region="emoji-auto-complete-container"
+                                aria-live="polite"
+                                aria-hidden="true"
+                            >
+                            </div>
+                        <div class="d-flex mt-sm-1">
+                            <textarea
+                                dir="auto"
+                                data-region="send-message-txt"
+                                class="form-control bg-light"
+                                rows="3"
+                                data-auto-rows
+                                data-min-rows="3"
+                                data-max-rows="5"
+                                aria-label="Écrire un message"
+                                placeholder="Écrire un message"
+                                style="resize: none"
+                                maxlength="4096"
+                            ></textarea>
+                        
+                            <div class="position-relative d-flex flex-column">
+                                    <div
+                                        data-region="emoji-picker-container"
+                                        class="emoji-picker-container hidden"
+                                        aria-hidden="true"
+                                    >
+                                        
+                                        <div
+                                            data-region="emoji-picker"
+                                            class="card shadow emoji-picker"
+                                        >
+                                            <div class="card-header px-1 pt-1 pb-0 d-flex justify-content-between flex-shrink-0">
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button selected"
+                                                    data-action="show-category"
+                                                    data-category="Recent"
+                                                    title="Récents"
+                                                >
+                                                    <i class="icon fa fa-clock-o fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button"
+                                                    data-action="show-category"
+                                                    data-category="Smileys & People"
+                                                    title="Émoticônes & personnes"
+                                                >
+                                                    <i class="icon fa fa-smile-o fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button"
+                                                    data-action="show-category"
+                                                    data-category="Animals & Nature"
+                                                    title="Animaux & nature"
+                                                >
+                                                    <i class="icon fa fa-leaf fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button"
+                                                    data-action="show-category"
+                                                    data-category="Food & Drink"
+                                                    title="Nourriture & boissons"
+                                                >
+                                                    <i class="icon fa fa-cutlery fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button"
+                                                    data-action="show-category"
+                                                    data-category="Travel & Places"
+                                                    title="Voyages & lieux"
+                                                >
+                                                    <i class="icon fa fa-plane fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button"
+                                                    data-action="show-category"
+                                                    data-category="Activities"
+                                                    title="Activités"
+                                                >
+                                                    <i class="icon fa fa-futbol-o fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button"
+                                                    data-action="show-category"
+                                                    data-category="Objects"
+                                                    title="Objets"
+                                                >
+                                                    <i class="icon fa fa-lightbulb-o fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button"
+                                                    data-action="show-category"
+                                                    data-category="Symbols"
+                                                    title="Symboles"
+                                                >
+                                                    <i class="icon fa fa-heart fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button"
+                                                    data-action="show-category"
+                                                    data-category="Flags"
+                                                    title="Drapeaux"
+                                                >
+                                                    <i class="icon fa fa-flag fa-fw " aria-hidden="true"  ></i>
+                                                </button>
+                                            </div>
+                                            <div class="card-body p-2 d-flex flex-column overflow-hidden">
+                                                <div class="input-group mb-1 flex-shrink-0">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text pr-0 bg-white text-muted">
+                                                            <i class="icon fa fa-search fa-fw " aria-hidden="true"  ></i>
+                                                        </span>
+                                                    </div>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control border-left-0"
+                                                        placeholder="Rechercher"
+                                                        aria-label="Rechercher"
+                                                        data-region="search-input"
+                                                    >
+                                                </div>
+                                                <div class="flex-grow-1 overflow-auto emojis-container h-100" data-region="emojis-container">
+                                                    <div class="position-relative" data-region="row-container"></div>
+                                                </div>
+                                                <div class="flex-grow-1 overflow-auto search-results-container h-100 hidden" data-region="search-results-container">
+                                                    <div class="position-relative" data-region="row-container"></div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="card-footer d-flex flex-shrink-0"
+                                                data-region="footer"
+                                            >
+                                                <div class="emoji-preview" data-region="emoji-preview"></div>
+                                                <div data-region="emoji-short-name" class="emoji-short-name text-muted text-wrap ml-2"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="btn btn-link btn-icon icon-size-3 ml-1"
+                                        aria-label="Activer/désactiver le sélecteur d'émojis"
+                                        data-action="toggle-emoji-picker"
+                                    >
+                                        <i class="icon fa fa-smile-o fa-fw " aria-hidden="true"  ></i>
+                                    </button>
+                                <button
+                                    class="btn btn-link btn-icon icon-size-3 ml-1 mt-auto"
+                                    aria-label="Envoyer message personnel"
+                                    data-action="send-message"
+                                >
+                                    <span data-region="send-icon-container"><i class="icon fa fa-paper-plane fa-fw " aria-hidden="true"  ></i></span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden p-sm-2" data-region="content-messages-footer-edit-mode-container">
+                        
+                        <div class="d-flex p-3 justify-content-end">
+                            <button
+                                class="btn btn-link btn-icon my-1 icon-size-4"
+                                data-action="delete-selected-messages"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                title="Supprimer les messages sélectionnés"
+                            >
+                                <span data-region="icon-container"><i class="icon fa fa-trash fa-fw " aria-hidden="true"  ></i></span>
+                                <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</span>
+                                <span class="sr-only">Supprimer les messages sélectionnés</span>
+                            </button>
+                        </div>                    </div>
+                    <div class="hidden bg-secondary p-sm-3" data-region="content-messages-footer-require-contact-container">
+                        
+                        <div class="p-3 bg-white">
+                            <p data-region="title"></p>
+                            <p class="text-muted" data-region="text"></p>
+                            <button type="button" class="btn btn-primary btn-block" data-action="request-add-contact">
+                                <span data-region="dialogue-button-text">Envoyer une demande de contact</span>
+                                <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hidden bg-secondary p-sm-3" data-region="content-messages-footer-require-unblock-container">
+                        
+                        <div class="p-3 bg-white">
+                            <p class="text-muted" data-region="text">Vous avez bloqué cet utilisateur.</p>
+                            <button type="button" class="btn btn-primary btn-block" data-action="request-unblock">
+                                <span data-region="dialogue-button-text">Débloquer l'utilisateur</span>
+                                <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Chargement" aria-label="Chargement"></i></span>
+</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hidden bg-secondary p-sm-3" data-region="content-messages-footer-unable-to-message">
+                        
+                        <div class="p-3 bg-white">
+                            <p class="text-muted" data-region="text">Vous ne pouvez pas envoyer un message à cet utilisateur</p>
+                        </div>
+                    </div>
+                    <div class="p-sm-2" data-region="placeholder-container">
+                        <div class="d-flex">
+                            <div class="bg-pulse-grey w-100" style="height: 80px"></div>
+                            <div class="mx-2 mb-2 align-self-end bg-pulse-grey" style="height: 20px; width: 20px"></div>
+                        </div>                    </div>
+                    <div
+                        class="hidden position-absolute z-index-1"
+                        data-region="confirm-dialogue-container"
+                        style="top: -1px; bottom: 0; right: 0; left: 0; background: rgba(0,0,0,0.3);"
+                    ></div>
+                </div>                    <div data-region="view-overview" class="text-center">
+                        <a href="https://moodle.unistra.fr/message/index.php">
+                            Tout afficher
+                        </a>
+                    </div>
+            </div>
+        </div>
+
+</div>
+    
+	<footer id="page-footer" class="py-3 footer_unistra">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div id="course-footer"></div>
+			<div class="col-md-5">
+				<div class="tool_usertours-resettourcontainer"></div>
+				<div>
+				&copy;&nbsp;2022&nbsp;Université de Strasbourg<br/>
+				<a href="https://services-numeriques.unistra.fr/index.php?id=1268" title="les mentions légales s'ouvrent dans une nouvelle fenêtre" target="_blanck">Mentions légales</a>
+				&nbsp;|&nbsp;&nbsp;<a href="https://services-numeriques.unistra.fr/contacter-le-support.html" title="la page d'assistance technique s'ouvre dans une nouvelle fenêtre" target="_blanck">Assistance technique</a>
+				<div class="logininfo">Connecté sous le nom « <a href="https://moodle.unistra.fr/user/profile.php?id=66487" title="Consulter le profil">Nathanaël Derousseaux--Lebert</a> » (<a href="https://moodle.unistra.fr/login/logout.php?sesskey=IzWxGzYQuj">Déconnexion</a>)</div>
+				<nav class="nav navbar-nav d-md-none">
+	                <ul class="list-unstyled pt-3">
+	                                    <li>Aide Moodle</li>
+	                                <li>
+	                                    <ul class="list-unstyled ml-3">
+	                                                        <li><a href="https://documentation.unistra.fr/Catalogue/Services_pedagogiques/Moodle/" title="">Informations de rentrée...</a></li>
+	                                                        <li><a href="https://documentation.unistra.fr/Catalogue/Services_pedagogiques/Moodle/Guide_etudiant/" title="">Guide de l'étudiant</a></li>
+	                                                        <li><a href="https://documentation.unistra.fr/Catalogue/Services_pedagogiques/Moodle/Guide_enseignant/" title="">Guide de l'enseignant</a></li>
+	                                                        <li><a href="https://idip.unistra.fr/appui-par-le-numerique/formations/" title="">Formations</a></li>
+	                                    </ul>
+	                                </li>
+	                                    <li>Autres Moodle</li>
+	                                <li>
+	                                    <ul class="list-unstyled ml-3">
+	                                                        <li><a href="https://aidealareussite.unistra.fr/login/index.php?authCAS=CAS" title="">Moodle AIR</a></li>
+	                                                        <li><a href="https://moodle3-prod-archives.unistra.fr/login/index.php?authCAS=CAS" title="">Moodle Archives</a></li>
+	                                                        <li><a href="https://moodle-exam.unistra.fr/login/index.php?authCAS=CAS" title="">Moodle Examens</a></li>
+	                                                        <li><a href="https://moodle3-prod-exam-archives.unistra.fr/login/index.php?authCAS=CAS" title="">Moodle Examens Archives</a></li>
+	                                    </ul>
+	                                </li>
+	                                    <li><a href="#" title="Langue">Français ‎(fr)‎</a></li>
+	                                <li>
+	                                    <ul class="list-unstyled ml-3">
+	                                                        <li><a href="https://moodle.unistra.fr/mod/page/view.php?id=123026&amp;lang=de" title="Deutsch ‎(de)‎">Deutsch ‎(de)‎</a></li>
+	                                                        <li><a href="https://moodle.unistra.fr/mod/page/view.php?id=123026&amp;lang=en" title="English ‎(en)‎">English ‎(en)‎</a></li>
+	                                                        <li><a href="https://moodle.unistra.fr/mod/page/view.php?id=123026&amp;lang=fr" title="Français ‎(fr)‎">Français ‎(fr)‎</a></li>
+	                                    </ul>
+	                                </li>
+	                </ul>
+				</nav>
+				<div class="tool_dataprivacy"><a href="https://moodle.unistra.fr/admin/tool/dataprivacy/summary.php">Résumé de conservation de données</a></div><a href="https://download.moodle.org/mobile?version=2020061510&amp;lang=fr&amp;iosappid=633359593&amp;androidappid=com.moodle.moodlemobile">Obtenir l'app mobile</a>
+				</div>
+			</div>	
+			<div class="col-md-7 social d-flex justify-content-end">
+	          <ul class="list-inline">
+				<li class="list-inline-item"><a href="http://unistra.fr" target="_blank" title="la page s'ouvre dans une nouvelle fenêtre"><i class="fa fa-globe"></i></a></li>
+				<li class="list-inline-item"><a href="http://www.facebook.com/unistra" target="_blank" title="la page s'ouvre dans une nouvelle fenêtre"><i class="fa fa-facebook"></i></a></li>
+				<li class="list-inline-item"><a href="http://twitter.com/#!/unistra" target="_blank" title="la page s'ouvre dans une nouvelle fenêtre"><i class="fa fa-twitter"></i></a></li>
+				<li class="list-inline-item"><a href="http://instagram.com/unistraofficiel/" target="_blank" title="la page s'ouvre dans une nouvelle fenêtre"><i class="fa fa-instagram"></i></a></li>
+				<li class="list-inline-item"><a href="http://www.youtube.com/user/unistraofficielle" target="_blank" title="la page s'ouvre dans une nouvelle fenêtre"><i class="fa fa-youtube"></i></a></li>
+	          </ul>
+			</div>
+		</div>
+	</div>
+	</footer>
+	<script>
+//<![CDATA[
+var require = {
+    baseUrl : 'https://moodle.unistra.fr/lib/requirejs.php/1643647014/',
+    // We only support AMD modules with an explicit define() statement.
+    enforceDefine: true,
+    skipDataMain: true,
+    waitSeconds : 0,
+
+    paths: {
+        jquery: 'https://moodle.unistra.fr/lib/javascript.php/1643647014/lib/jquery/jquery-3.5.1.min',
+        jqueryui: 'https://moodle.unistra.fr/lib/javascript.php/1643647014/lib/jquery/ui-1.12.1/jquery-ui.min',
+        jqueryprivate: 'https://moodle.unistra.fr/lib/javascript.php/1643647014/lib/requirejs/jquery-private'
+    },
+
+    // Custom jquery config map.
+    map: {
+      // '*' means all modules will get 'jqueryprivate'
+      // for their 'jquery' dependency.
+      '*': { jquery: 'jqueryprivate' },
+      // Stub module for 'process'. This is a workaround for a bug in MathJax (see MDL-60458).
+      '*': { process: 'core/first' },
+
+      // 'jquery-private' wants the real jQuery module
+      // though. If this line was not here, there would
+      // be an unresolvable cyclic dependency.
+      jqueryprivate: { jquery: 'jquery' }
+    }
+};
+
+//]]>
+</script>
+<script src="https://moodle.unistra.fr/lib/javascript.php/1643647014/lib/requirejs/require.min.js"></script>
+<script>
+//<![CDATA[
+M.util.js_pending("core/first");require(['core/first'], function() {
+require(['core/prefetch']);
+;
+require(["media_videojs/loader"], function(loader) {
+    loader.setUp(function(videojs) {
+        videojs.options.flash.swf = "https://moodle.unistra.fr/media/player/videojs/videojs/video-js.swf";
+videojs.addLanguage('fr', {
+  "Audio Player": "Lecteur audio",
+  "Video Player": "Lecteur vidéo",
+  "Play": "Lecture",
+  "Pause": "Pause",
+  "Replay": "Revoir",
+  "Current Time": "Temps actuel",
+  "Duration": "Durée",
+  "Remaining Time": "Temps restant",
+  "Stream Type": "Type de flux",
+  "LIVE": "EN DIRECT",
+  "Loaded": "Chargé",
+  "Progress": "Progression",
+  "Progress Bar": "Barre de progression",
+  "progress bar timing: currentTime={1} duration={2}": "{1} de {2}",
+  "Fullscreen": "Plein écran",
+  "Non-Fullscreen": "Fenêtré",
+  "Mute": "Sourdine",
+  "Unmute": "Son activé",
+  "Playback Rate": "Vitesse de lecture",
+  "Subtitles": "Sous-titres",
+  "subtitles off": "Sous-titres désactivés",
+  "Captions": "Sous-titres transcrits",
+  "captions off": "Sous-titres transcrits désactivés",
+  "Chapters": "Chapitres",
+  "Descriptions": "Descriptions",
+  "descriptions off": "descriptions désactivées",
+  "Audio Track": "Piste audio",
+  "Volume Level": "Niveau de volume",
+  "You aborted the media playback": "Vous avez interrompu la lecture de la vidéo.",
+  "A network error caused the media download to fail part-way.": "Une erreur de réseau a interrompu le téléchargement de la vidéo.",
+  "The media could not be loaded, either because the server or network failed or because the format is not supported.": "Cette vidéo n'a pas pu être chargée, soit parce que le serveur ou le réseau a échoué ou parce que le format n'est pas reconnu.",
+  "The media playback was aborted due to a corruption problem or because the media used features your browser did not support.": "La lecture de la vidéo a été interrompue à cause d'un problème de corruption ou parce que la vidéo utilise des fonctionnalités non prises en charge par votre navigateur.",
+  "No compatible source was found for this media.": "Aucune source compatible n'a été trouvée pour cette vidéo.",
+  "The media is encrypted and we do not have the keys to decrypt it.": "Le média est chiffré et nous n'avons pas les clés pour le déchiffrer.",
+  "Play Video": "Lire la vidéo",
+  "Close": "Fermer",
+  "Close Modal Dialog": "Fermer la boîte de dialogue modale",
+  "Modal Window": "Fenêtre modale",
+  "This is a modal window": "Ceci est une fenêtre modale",
+  "This modal can be closed by pressing the Escape key or activating the close button.": "Ce modal peut être fermé en appuyant sur la touche Échap ou activer le bouton de fermeture.",
+  ", opens captions settings dialog": ", ouvrir les paramètres des sous-titres transcrits",
+  ", opens subtitles settings dialog": ", ouvrir les paramètres des sous-titres",
+  ", opens descriptions settings dialog": ", ouvrir les paramètres des descriptions",
+  ", selected": ", sélectionné",
+  "captions settings": "Paramètres des sous-titres transcrits",
+  "subtitles settings": "Paramètres des sous-titres",
+  "descriptions settings": "Paramètres des descriptions",
+  "Text": "Texte",
+  "White": "Blanc",
+  "Black": "Noir",
+  "Red": "Rouge",
+  "Green": "Vert",
+  "Blue": "Bleu",
+  "Yellow": "Jaune",
+  "Magenta": "Magenta",
+  "Cyan": "Cyan",
+  "Background": "Arrière-plan",
+  "Window": "Fenêtre",
+  "Transparent": "Transparent",
+  "Semi-Transparent": "Semi-transparent",
+  "Opaque": "Opaque",
+  "Font Size": "Taille des caractères",
+  "Text Edge Style": "Style des contours du texte",
+  "None": "Aucun",
+  "Raised": "Élevé",
+  "Depressed": "Enfoncé",
+  "Uniform": "Uniforme",
+  "Dropshadow": "Ombre portée",
+  "Font Family": "Famille de polices",
+  "Proportional Sans-Serif": "Polices à chasse variable sans empattement (Proportional Sans-Serif)",
+  "Monospace Sans-Serif": "Polices à chasse fixe sans empattement (Monospace Sans-Serif)",
+  "Proportional Serif": "Polices à chasse variable avec empattement (Proportional Serif)",
+  "Monospace Serif": "Polices à chasse fixe avec empattement (Monospace Serif)",
+  "Casual": "Manuscrite",
+  "Script": "Scripte",
+  "Small Caps": "Petites capitales",
+  "Reset": "Réinitialiser",
+  "restore all settings to the default values": "Restaurer tous les paramètres aux valeurs par défaut",
+  "Done": "Terminé",
+  "Caption Settings Dialog": "Boîte de dialogue des paramètres des sous-titres transcrits",
+  "Beginning of dialog window. Escape will cancel and close the window.": "Début de la fenêtre de dialogue. La touche d'échappement annulera et fermera la fenêtre.",
+  "End of dialog window.": "Fin de la fenêtre de dialogue."
+});
+
+    });
+});;
+
+require(['jquery', 'core/custom_interaction_events'], function($, CustomEvents) {
+    CustomEvents.define('#single_select621f66395b62f3', [CustomEvents.events.accessibleChange]);
+    $('#single_select621f66395b62f3').on(CustomEvents.events.accessibleChange, function() {
+        var ignore = $(this).find(':selected').attr('data-ignore');
+        if (typeof ignore === typeof undefined) {
+            $('#single_select_f621f66395b62f2').submit();
+        }
+    });
+});
+;
+
+require(['jquery', 'message_popup/notification_popover_controller'], function($, controller) {
+    var container = $('#nav-notification-popover-container');
+    var controller = new controller(container);
+    controller.registerEventListeners();
+    controller.registerListNavigationEventListeners();
+});
+;
+
+require(
+[
+    'jquery',
+    'core_message/message_popover'
+],
+function(
+    $,
+    Popover
+) {
+    var toggle = $('#message-drawer-toggle-621f663961ac0621f66395b62f8');
+    Popover.init(toggle);
+});
+;
+
+        require(['jquery', 'core/custom_interaction_events'], function($, CustomEvents) {
+            CustomEvents.define('#jump-to-activity', [CustomEvents.events.accessibleChange]);
+            $('#jump-to-activity').on(CustomEvents.events.accessibleChange, function() {
+                if (!$(this).val()) {
+                    return false;
+                }
+                $('#url_select_f621f66395b62f18').submit();
+            });
+        });
+    ;
+
+require(['jquery', 'core_message/message_drawer'], function($, MessageDrawer) {
+    var root = $('#message-drawer-621f6639665af621f66395b62f19');
+    MessageDrawer.init(root, '621f6639665af621f66395b62f19', false);
+});
+;
+
+require(['jquery', 'core/custom_interaction_events'], function($, CustomEvents) {
+    CustomEvents.define('#single_select621f66395b62f21', [CustomEvents.events.accessibleChange]);
+    $('#single_select621f66395b62f21').on(CustomEvents.events.accessibleChange, function() {
+        var ignore = $(this).find(':selected').attr('data-ignore');
+        if (typeof ignore === typeof undefined) {
+            $('#single_select_f621f66395b62f20').submit();
+        }
+    });
+});
+;
+
+M.util.js_pending('theme_boost/loader');
+require(['theme_boost/loader'], function() {
+    M.util.js_complete('theme_boost/loader');
+});
+M.util.js_pending('theme_boost/drawer');
+require(['theme_boost/drawer'], function(drawer) {
+    drawer.init();
+    M.util.js_complete('theme_boost/drawer');
+});
+;
+M.util.js_pending('core/notification'); require(['core/notification'], function(amd) {amd.init(260745, [], true); M.util.js_complete('core/notification');});;
+M.util.js_pending('core/log'); require(['core/log'], function(amd) {amd.setConfig({"level":"warn"}); M.util.js_complete('core/log');});;
+M.util.js_pending('core/page_global'); require(['core/page_global'], function(amd) {amd.init(); M.util.js_complete('core/page_global');});M.util.js_complete("core/first");
+});
+//]]>
+</script>
+<script src="https://moodle.unistra.fr/lib/javascript.php/1643647014/theme/unistra/javascript/backtotop.js"></script>
+<script src="https://moodle.unistra.fr/lib/javascript.php/1643647014/theme/unistra/javascript/scrollspy.js"></script>
+<script src="https://moodle.unistra.fr/lib/javascript.php/1643647014/theme/unistra/javascript/incoursesettings.js"></script>
+<script src="https://moodle.unistra.fr/lib/javascript.php/1643647014/theme/unistra/javascript/metismenu.js"></script>
+<script src="https://moodle.unistra.fr/lib/javascript.php/1643647014/theme/unistra/javascript/navlink.js"></script>
+<script src="https://moodle.unistra.fr/lib/javascript.php/1643647014/theme/unistra/javascript/ena_etray.js"></script>
+<script src="https://moodle.unistra.fr/lib/javascript.php/1643647014/theme/unistra/javascript/blockbar.js"></script>
+<script>
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"Modifi\u00e9 le","name":"Nom","error":"Erreur","info":"Information","yes":"Oui","no":"Non","ok":"OK","cancel":"Annuler","confirm":"Confirmer","areyousure":"Voulez-vous vraiment continuer\u00a0?","closebuttontitle":"Fermer","unknownerror":"Erreur inconnue","file":"Fichier","url":"URL"},"repository":{"type":"Type","size":"Taille","invalidjson":"Cha\u00eene JSON non valide","nofilesattached":"Aucun fichier joint","filepicker":"S\u00e9lecteur de fichiers","logout":"D\u00e9connexion","nofilesavailable":"Aucun fichier disponible","norepositoriesavailable":"D\u00e9sol\u00e9, aucun de vos d\u00e9p\u00f4ts actuels ne peut retourner de fichiers dans le format requis.","fileexistsdialogheader":"Le fichier existe","fileexistsdialog_editor":"Un fichier de ce nom a d\u00e9j\u00e0 \u00e9t\u00e9 joint au texte que vous modifiez.","fileexistsdialog_filemanager":"Un fichier de ce nom a d\u00e9j\u00e0 \u00e9t\u00e9 joint","renameto":"Renommer \u00e0 \u00ab\u00a0{$a}\u00a0\u00bb","referencesexist":"Il y a {$a} liens qui pointent vers ce fichier","select":"S\u00e9lectionnez"},"admin":{"confirmdeletecomments":"Voulez-vous vraiment supprimer des commentaires\u00a0?","confirmation":"Confirmation"},"debug":{"debuginfo":"Info de d\u00e9bogage","line":"Ligne","stacktrace":"Trace de la pile"},"langconfig":{"labelsep":"&nbsp;"}};
+//]]>
+</script>
+<script>
+//<![CDATA[
+(function() {Y.use("moodle-filter_mathjaxloader-loader",function() {M.filter_mathjaxloader.configure({"mathjaxconfig":"MathJax.Hub.Config({\r\nconfig: [\"Accessible.js\", \"Safe.js\"],\r\nerrorSettings: { message: [\"!\"] },\r\nskipStartupTypeset: true,\r\nTeX: {extensions: [\"AMSmath.js\",\"AMSsymbols.js\",\"mhchem.js\",\"noErrors.js\",\"noUndefined.js\"]},\r\nmessageStyle: \"none\"\r\n});","lang":"fr"});
+});
+Y.use("moodle-filter_glossary-autolinker",function() {M.filter_glossary.init_filter_autolinking({"courseid":0});
+});
+M.util.help_popups.setup(Y);
+ M.util.js_pending('random621f66395b62f22'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random621f66395b62f22'); });
+})();
+//]]>
+</script>
+</div>
+<script type="text/javascript"></script>
+</body>
+</html>
